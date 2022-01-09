@@ -8,8 +8,9 @@ ARG JVM_PARAM="-XX:+UseG1GC -XX:+UnlockExperimentalVMOptions -XX:MaxGCPauseMilli
 RUN apk add --no-cache --virtual .buildPacks wget git && \
     mkdir /temp && \
     cd /temp && \
-    wget "https://raw.githubusercontent.com/CycleDM/DockerBuildSource/master/build/mcserver/scripts/download.sh" && \
-    wget "https://raw.githubusercontent.com/CycleDM/DockerBuildSource/master/build/mcserver/scripts/init.sh" && \
+    # Download scripts
+    wget "https://raw.githubusercontent.com/CycleDM/docker-minecraft-server/main/scripts/download.sh" && \
+    wget "https://raw.githubusercontent.com/CycleDM/docker-minecraft-server/main/scripts/init.sh" && \
     chmod a+x download.sh init.sh && \
     sh download.sh $SERVER_TYPE $GAME_VERSION && \
     echo "eula=false" > eula.txt && \

@@ -22,7 +22,7 @@ RUN apk add --no-cache --virtual .buildPacks wget git && \
 FROM cycledm/dragonwell:jre17
 
 ENV TZ=Asia/Shanghai
-ENV LANG=zh_CN.utf8
+ENV LANG=zh_CN.UTF-8
 
 COPY --from=builder /temp /resource
 

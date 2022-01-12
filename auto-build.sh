@@ -16,3 +16,4 @@ done < $work_dir/auto-build-list
 echo "自动构建列表全部完成，即将自动清理镜像..."
 sleep 10s
 docker image prune -f
+docker images

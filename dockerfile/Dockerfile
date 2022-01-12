@@ -9,8 +9,8 @@ COPY ["./scripts/start-helper.sh", "./scripts/download-helper.sh", "/temp/"]
 
 RUN apk add --no-cache --virtual .buildPacks wget git && \
     cd /temp && \
-    chmod a+x download.sh init.sh && \
-    sh download.sh $SERVER_TYPE $GAME_VERSION && \
+    chmod a+x download-helper.sh start-helper.sh && \
+    sh download-helper.sh $SERVER_TYPE $GAME_VERSION && \
     echo "eula=false" > eula.txt && \
     echo "sed -i 's/false/true/g' eula.txt" > start.sh && \
     echo "exec java -Xmx$MAX_RAM $JVM_PARAM -jar $(ls *.jar) nogui" >> start.sh && \
@@ -26,4 +26,4 @@ COPY --from=builder /temp /resource
 
 WORKDIR /app
 
-ENTRYPOINT ["sh", "/resource/init.sh"]
+ENTRYPOINT ["sh", "/resource/start-helper.sh"]

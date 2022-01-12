@@ -8,7 +8,7 @@ do
     if [ ! "$line" ]; then 
         continue
     fi
-    echo "即将开始的构建 $line"
+    echo "即将开始构建 $line"
     sh $build_script $line
     sh $push_script ${line#*jre* }
 done < $work_dir/auto-build-list

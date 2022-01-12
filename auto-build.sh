@@ -5,9 +5,13 @@ push_script=$work_dir/scripts/push-helper.sh
 
 while read line
 do
-    echo $line
-    sh $build_script $line
-    sh $push_script ${line#*jre* }
+    #echo $line
+    #sh $build_script $line
+    #sh $push_script ${line#*jre*}
+    if [ ! "$line" ]; then 
+        continue
+    fi
+    echo ${line#*jre* }
 done < $work_dir/auto-build-list
 
 docker image prune -f

@@ -15,6 +15,7 @@ RUN apk add --no-cache --virtual .buildPacks wget git && \
     echo "sed -i 's/false/true/g' eula.txt" > start.sh && \
     echo "exec java -Xmx$MAX_RAM $JVM_PARAM -jar $(ls *.jar) nogui" >> start.sh && \
     chmod a+x start.sh && \
+    rm download-helper.sh && \
     apk del .buildPacks
 
 FROM cycledm/dragonwell:jre17

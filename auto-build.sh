@@ -8,6 +8,6 @@ do
     echo $line
     sh $build_script $line
     sh $push_script ${line#*jre* }
-done < $work_dir/to-build-list
+done < $work_dir/auto-build-list
 
 docker image prune -f

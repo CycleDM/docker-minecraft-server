@@ -8,9 +8,11 @@ do
     if [ ! "$line" ]; then 
         continue
     fi
-    echo "即将开始使用构建参数 $line"
+    echo "即将开始的构建 $line"
     sh $build_script $line
-    sh $push_script ${line#*jre*}
+    sh $push_script ${line#*jre* }
 done < $work_dir/auto-build-list
 
+echo "自动构建列表全部完成，即将自动清理镜像..."
+sleep 10s
 docker image prune -f

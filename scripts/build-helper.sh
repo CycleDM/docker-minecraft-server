@@ -17,13 +17,16 @@ docker pull cycledm/dragonwell:$jre_version
 cp $work_dir/dockerfile/Dockerfile $work_dir
 
 sed -i "s/cycledm\/dragonwell:jre17/cycledm\/dragonwell:$jre_version/g" $work_dir/Dockerfile
+
 if [ "$add_tag" ]; then
     docker build --build-arg SERVER_TYPE=$server_type --build-arg GAME_VERSION=$game_version -t $image_name:$game_version -t $image_name:$add_tag $work_dir
+    result=$?
 else
     docker build --build-arg SERVER_TYPE=$server_type --build-arg GAME_VERSION=$game_version -t $image_name:$game_version $work_dir
+    result=$?
 fi
-docker build --build-arg SERVER_TYPE=$server_type --build-arg GAME_VERSION=$game_version -t $image_name:$game_version $work_dir
-if [ "$?" = "0" ]; then
+
+if [ "$result" = "0" ]; then
     echo "$image_name:$game_version 构建成功"
     rm $work_dir/Dockerfile
     exit 0

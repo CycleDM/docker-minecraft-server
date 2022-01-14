@@ -1,9 +1,20 @@
 jre17 purpur 1.18.1 latest
 jre17 purpur 1.17.1
 jre11 purpur 1.16.5
+jre8 purpur 1.15.2
+jre8 purpur 1.14.4
 
 jre17 paper 1.18.1 latest
 jre17 paper 1.17.1
+jre11 paper 1.16.5
+jre8 paper 1.15.2
+jre8 paper 1.14.4
+jre8 paper 1.13.2
+jre8 paper 1.12.2
+jre8 paper 1.11.2
+jre8 paper 1.10.2
+jre8 paper 1.9.4
+jre8 paper 1.8.8
 
 jre11 mohist 1.16.5 latest
 jre8 mohist 1.12.2
